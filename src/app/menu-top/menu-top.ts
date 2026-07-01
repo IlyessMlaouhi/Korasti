@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { RouterLink,RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'app-menu-top',
-  imports: [RouterLink],
+  imports: [RouterLink,RouterLinkActive],
   templateUrl: './menu-top.html',
   styleUrl: './menu-top.css',
 })
