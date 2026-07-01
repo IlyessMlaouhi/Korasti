@@ -1,1 +1,43 @@
-<p>home works!</p>
+<!-- Hero -->
+<section class="bg-primary bg-gradient text-white py-5">
+  <div class="container py-5 text-center">
+    <h1 class="display-4 fw-bold">Korasti</h1>
+    <p class="lead col-lg-8 mx-auto">
+      The digital notebook connecting teachers, students, and parents.
+      Track lessons, attendance, and course planning — paperless.
+    </p>
+    <div class="mt-4">
+      <a routerLink="/signup" class="btn btn-light btn-lg me-2">Get Started</a>
+      <a routerLink="/login" class="btn btn-outline-light btn-lg">Log In</a>
+    </div>
+  </div>
+</section>
+
+<!-- Features -->
+<section class="py-5">
+  <div class="container">
+    <h2 class="text-center fw-bold mb-5">Everything in one place</h2>
+    <div class="row g-4">
+      @for (feature of features(); track feature.title) {
+        <div class="col-md-6 col-lg-3">
+          <div class="card h-100 border-0 shadow-sm text-center p-3">
+            <div class="card-body">
+              <i class="bi {{ feature.icon }} display-5 text-primary mb-3"></i>
+              <h5 class="card-title fw-semibold">{{ feature.title }}</h5>
+              <p class="card-text text-muted">{{ feature.description }}</p>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="bg-light py-5 text-center">
+  <div class="container">
+    <h2 class="fw-bold mb-3">Ready to go paperless?</h2>
+    <p class="text-muted mb-4">Set up your classroom on Korasti in minutes.</p>
+    <a routerLink="/signup" class="btn btn-primary btn-lg">Create your account</a>
+  </div>
+</section>
