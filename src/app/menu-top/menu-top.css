@@ -1,0 +1,35 @@
+* {
+    margin: 0;
+    border: 0;
+    padding: 0;
+    
+}
+.menuTop {
+    display: flex;
+    gap: 16px;
+    border-bottom: 2px solid black;
+    padding-bottom: 4px;
+    align-items: center;
+    min-height: 3rem;
+}
+.menuTop a {
+    text-decoration: none;
+}
+.menuTop a:hover {
+    text-decoration: underline;
+}
+img {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.space {
+    flex: 1;
+}
+button {
+    background: none;
+}
+button img:hover {
+    filter: brightness(0.9);
+}
