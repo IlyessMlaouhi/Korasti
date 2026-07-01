@@ -1,18 +1,29 @@
 <div class="menuTop">
-    <a routerLink="">accueil</a>
-    <a routerLink="/about">à propos</a>
-    <div class="space"></div>
-    
-    @if(isLogged) {
-        <img src="https://i.sstatic.net/l60Hf.png" alt="pfp">
-        <h4>{{username}}</h4>
-        <button (click)="quit()">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjDCcvNKzzrxeqziBuKAF2GLdP5ZiVIjYWsRoq8UbVEtjyf7nMPH2bttk&s=10" alt="quit">
-        </button>
-    }
-    @else {
-    <a routerLink="/login">se connecter</a>
-    <a routerLink="/signup">s'inscrire</a>
-    }
+    <div class="menuSection menuSection--start">
+        <a class="brand" routerLink="">Korasti</a>
+        <nav class="navLinks">
+            <a routerLink="">Accueil</a>
+            <a routerLink="/about">À propos</a>
+        </nav>
+    </div>
+
+    <div class="menuSection menuSection--end">
+        @if(isLogged) {
+            <div class="profile">
+                <img src="https://i.sstatic.net/l60Hf.png" alt="pfp">
+                <div class="profileInfo">
+                    <span>Bonjour</span>
+                    <h4>{{username}}</h4>
+                </div>
+            </div>
+            <button type="button" class="quitButton" (click)="quit()" aria-label="Quitter">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjDCcvNKzzrxeqziBuKAF2GLdP5ZiVIjYWsRoq8UbVEtjyf7nMPH2bttk&s=10" alt="Quitter">
+            </button>
+        }
+        @else {
+            <a class="button button--secondary" routerLink="/login">Se connecter</a>
+            <a class="button button--primary" routerLink="/signup">S'inscrire</a>
+        }
+    </div>
 </div>
 
