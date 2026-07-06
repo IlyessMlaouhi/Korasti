@@ -1,10 +1,6 @@
 import { Component } from '@angular/core';
-<<<<<<< HEAD
-import { CommonModule } from '@angular/common';
-import { RouterLink,RouterLinkActive } from '@angular/router';
-=======
 import { RouterLink, RouterLinkActive } from '@angular/router';
->>>>>>> origin/akrem
+
 
 @Component({
   selector: 'app-menu-top',

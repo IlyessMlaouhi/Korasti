@@ -106,8 +106,8 @@
   font-size: 13px;
   font-weight: 500;
   color: #1e293b;
-<<<<<<< HEAD
-=======
+
+
 }
 .button--primary:hover {
     background: #2563eb;
@@ -152,5 +152,5 @@
         width: 100%;
         justify-content: flex-start;
     }
->>>>>>> origin/akrem
+
 }

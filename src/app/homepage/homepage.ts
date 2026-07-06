@@ -31,7 +31,7 @@ export class Homepage {
 
   schoolName = "Khaznadar Bardo";
 
-  todaysLessonsNumber = 2;
+  todaysLessonsNumber = 1;
 
   year = "2026/2027";
   todaysDate="06/07/2026";
@@ -62,7 +62,7 @@ export class Homepage {
       icon: 'bi-exclamation-circle',
       label: 'Séances à compléter',
       value: '3',
-      subtitle: '2 aujourd\'hui'
+      subtitle: this.todaysLessonsNumber.toString() +' aujourd\'hui'
     }
   ]);
   protected readonly lessons =signal<Lesson[]>([
