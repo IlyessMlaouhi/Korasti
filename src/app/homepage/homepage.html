@@ -1,0 +1,141 @@
+<!-- Hero -->
+<section class="bg-primary bg-gradient text-white py-5">
+  <div class="container py-5 text-center">
+
+    @if (male) {
+      <h1 class="display-4 fw-bold mb-3">
+        Bonjour, Monsieur {{ username }}
+      </h1>
+
+      <p class="lead col-lg-8 mx-auto mb-4">
+        Enseignant au <strong>{{ schoolName }}</strong><br>
+        Année scolaire <strong>{{ year }}</strong>
+      </p>
+    }
+    @else {
+      <h1 class="display-4 fw-bold mb-3">
+        Bonjour, Madame {{ username }}
+      </h1>
+
+      <p class="lead col-lg-8 mx-auto mb-4">
+        Enseignante au <strong>{{ schoolName }}</strong><br>
+        Année scolaire <strong>{{ year }}</strong>
+      </p>
+    }
+
+    <div class="mt-4">
+      <span class="badge bg-light text-primary fs-6 px-4 py-3 rounded-pill">
+        <i class="bi bi-calendar-check me-2"></i>
+        Vous avez <strong>{{ todaysLessonsNumber }}</strong> séance(s) aujourd'hui
+      </span>
+    </div>
+
+  </div>
+</section>
+<!--Stats-->
+<section class="py-5">
+  <div class="container">
+    <div class="row g-4">
+      @for (stat of stats(); track stat.label) {
+        <div class="col-md-6 col-lg-3">
+          <div class="card h-100 border-0 shadow-sm text-center p-3">
+            <div class="card-body">
+
+                <i class="bi {{ stat.icon }} display-5 text-primary mb-3"></i>
+
+                <h6 class="text-muted mb-2">
+                    {{ stat.label }}
+                </h6>
+
+                <h2 class="fw-bold mb-2">
+                    {{ stat.value }}
+                </h2>
+
+                <small class="text-secondary">
+                    {{ stat.subtitle }}
+                </small>
+
+                @if (stat.progress !== undefined) {
+                    <div class="progress mt-3" style="height:8px;">
+                        <div
+                        class="progress-bar"
+                        role="progressbar"
+                        [style.width.%]="stat.progress"
+                        [attr.aria-valuenow]="stat.progress"
+                        aria-valuemin="0"
+                        aria-valuemax="100">
+                        </div>
+                    </div>
+                }
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!--Today's lessons-->
+<section class="py-5">
+  <div class="container">
+
+    <h3 class="fw-bold mb-4">Todays Lessons</h3>
+
+    <div class="d-flex flex-column gap-3">
+      @for (l of lessons(); track l.startTime) {
+        <div
+          class="card border-0 shadow-sm lesson-card"
+          [class.lesson-card--recorded]="l.recorded"
+          [class.lesson-card--pending]="!l.recorded"
+        >
+          <div class="card-body d-flex align-items-center flex-wrap gap-3 p-3">
+
+            <!-- Time block -->
+            <div class="text-center lesson-time flex-shrink-0">
+              <i class="bi bi-clock display-6 text-primary"></i>
+              <div class="fw-bold mt-1">{{ l.startTime }}</div>
+              <small class="text-secondary">{{ l.duration }} h</small>
+            </div>
+
+            <div class="vr d-none d-md-block"></div>
+
+            <!-- Main info -->
+            <div class="flex-grow-1">
+              <h5 class="fw-bold mb-1">{{ l.subject }}</h5>
+              <div class="text-muted small">
+                <i class="bi bi-people me-1"></i>{{ l.group }}
+                <span class="mx-2">·</span>
+                <i class="bi bi-geo-alt me-1"></i>{{ l.location }}
+                <span class="mx-2">·</span>
+                <i class="bi bi-calendar-event me-1"></i>{{ l.date }}
+              </div>
+            </div>
+
+            <!-- Status + action -->
+            <div class="text-center flex-shrink-0">
+              <span class="badge lesson-badge mb-2 d-block" [class.lesson-badge--recorded]="l.recorded" [class.lesson-badge--pending]="!l.recorded">
+                @if (l.recorded) {
+                  <i class="bi bi-check-circle-fill me-1"></i>Enregistrée
+                } @else {
+                  <i class="bi bi-clock-history me-1"></i>À venir
+                }
+              </span>
+
+              @if (l.recorded) {
+                <button class="btn btn-outline-primary btn-sm">
+                  <i class="bi bi-pencil-square me-1"></i>Modifier
+                </button>
+              } @else {
+                <button class="btn btn-primary btn-sm">
+                  <i class="bi bi-plus-circle me-1"></i>Ajouter au cahier
+                </button>
+              }
+            </div>
+
+          </div>
+        </div>
+      }
+    </div>
+
+  </div>
+</section>
