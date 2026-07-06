@@ -1,111 +1,111 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+.korasti-nav {
+  background: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+  padding-top: 0.6rem;
+  padding-bottom: 0.6rem;
 }
-.menuTop {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-    padding: 1rem 1.5rem;
-    background: rgba(255, 255, 255, 0.92);
-    border: 1px solid rgba(15, 23, 42, 0.08);
-    border-radius: 0 0 24px 24px;
-    box-shadow: 0 20px 50px rgba(15, 23, 42, 0.08);
-    backdrop-filter: blur(14px);
-    position: sticky;
-    top: 0;
-    z-index: 20;
+
+.korasti-logo {
+  width: 34px;
+  height: 34px;
+  background: #1a56db;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 17px;
 }
-.menuSection {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
+
+.korasti-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1a56db;
+  letter-spacing: -0.02em;
 }
-.menuSection--start {
-    gap: 1.5rem;
-    min-width: 0;
+
+.korasti-link {
+  font-size: 14px;
+  font-weight: 500;
+  color: #64748b;
+  border-radius: 6px;
+  padding: 6px 10px;
+  transition: background 0.15s, color 0.15s;
 }
-.menuSection--end {
-    gap: 0.85rem;
-    flex-wrap: wrap;
-    justify-content: flex-end;
+
+.korasti-link:hover {
+  background: #eff6ff;
+  color: #1a56db;
 }
-.brand {
-    display: inline-flex;
-    align-items: center;
-    font-weight: 800;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: #1d4ed8;
-    text-decoration: none;
-    font-size: 1rem;
+
+.korasti-link.active {
+  background: #eff6ff;
+  color: #1a56db;
 }
-.navLinks {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
+
+.icon-btn {
+  width: 34px;
+  height: 34px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  color: #64748b;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
 }
-.navLinks a {
-    color: #334155;
-    text-decoration: none;
-    padding: 0.65rem 0.9rem;
-    border-radius: 999px;
-    transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
-    font-size: 0.95rem;
+
+.icon-btn:hover {
+  background: #f1f5f9;
+  color: #1e293b;
 }
-.navLinks a:hover {
-    background: #eff6ff;
-    color: #1d4ed8;
-    transform: translateY(-1px);
+
+.icon-btn.text-danger:hover {
+  background: #fef2f2;
+  color: #dc2626;
 }
-.profile {
-    display: flex;
-    align-items: center;
-    gap: 0.85rem;
-    padding: 0.55rem 0.85rem;
-    border-radius: 999px;
-    background: #eef2ff;
-    border: 1px solid #dbeafe;
+
+.notif-dot {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 7px;
+  height: 7px;
+  background: #ef4444;
+  border-radius: 50%;
+  border: 1.5px solid #fff;
 }
-.profile img {
-    width: 2.4rem;
-    height: 2.4rem;
-    border-radius: 50%;
-    object-fit: cover;
+
+.profile-pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 10px 4px 4px;
+  border: 1px solid #e2e8f0;
+  border-radius: 999px;
+  background: #f8fafc;
 }
-.profileInfo {
-    display: flex;
-    flex-direction: column;
-    line-height: 1.1;
+
+.avatar-circle {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #1a56db;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.profileInfo span {
-    font-size: 0.78rem;
-    color: #64748b;
-}
-.profileInfo h4 {
-    font-size: 0.96rem;
-    color: #0f172a;
-    margin: 0;
-}
-.button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.75rem 1rem;
-    border-radius: 999px;
-    font-size: 0.95rem;
-    font-weight: 700;
-    text-decoration: none;
-    transition: transform 0.18s ease, background 0.2s ease, color 0.2s ease;
-}
-.button:hover {
-    transform: translateY(-1px);
-}
-.button--primary {
-    background: #1d4ed8;
-    color: #ffffff;
+
+.profile-name {
+  font-size: 13px;
+  font-weight: 500;
+  color: #1e293b;
 }
 .button--primary:hover {
     background: #2563eb;

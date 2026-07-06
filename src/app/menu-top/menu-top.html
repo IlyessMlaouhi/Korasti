@@ -1,29 +1,87 @@
-<div class="menuTop">
-    <div class="menuSection menuSection--start">
-        <a class="brand" routerLink="">Korasti</a>
-        <nav class="navLinks">
-            <a routerLink="/homepage">Accueil</a>
-            <a routerLink="/about">À propos</a>
-        </nav>
-    </div>
+<nav class="navbar navbar-expand-lg sticky-top korasti-nav">
+  <div class="container-fluid px-4">
 
-    <div class="menuSection menuSection--end">
-        @if(isLogged) {
-            <div class="profile">
-                <img src="https://i.sstatic.net/l60Hf.png" alt="pfp">
-                <div class="profileInfo">
-                    <span>Bonjour</span>
-                    <h4>{{username}}</h4>
-                </div>
-            </div>
-            <button type="button" class="quitButton" (click)="quit()" aria-label="Quitter">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjDCcvNKzzrxeqziBuKAF2GLdP5ZiVIjYWsRoq8UbVEtjyf7nMPH2bttk&s=10" alt="Quitter">
-            </button>
-        }
-        @else {
-            <a class="button button--secondary" routerLink="/login">Se connecter</a>
-            <a class="button button--primary" routerLink="/signup">S'inscrire</a>
-        }
+    <a class="navbar-brand d-flex align-items-center gap-2" routerLink="">
+      <div class="korasti-logo">
+        <i class="bi bi-journal-text"></i>
+      </div>
+      <span class="korasti-title">Korasti</span>
+    </a>
+
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navContent">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navContent">
+
+      @if (isLogged) {
+        <ul class="navbar-nav me-auto gap-1">
+          <li class="nav-item">
+            <a class="nav-link korasti-link" routerLink="/homepage" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+              <i class="bi bi-house me-1"></i>Accueil
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link korasti-link" routerLink="/ma-classe" routerLinkActive="active">
+              <i class="bi bi-people me-1"></i>Ma classe
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link korasti-link" routerLink="/emploi" routerLinkActive="active">
+              <i class="bi bi-calendar-week me-1"></i>Emploi
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link korasti-link" routerLink="/about" routerLinkActive="active">
+              <i class="bi bi-info-circle me-1"></i>À propos
+            </a>
+          </li>
+        </ul>
+
+        <div class="d-flex align-items-center gap-2 ms-auto">
+          <button class="icon-btn" title="Changer la langue">
+            <i class="bi bi-translate"></i>
+          </button>
+          <button class="icon-btn position-relative" title="Notifications">
+            <i class="bi bi-bell"></i>
+            <span class="notif-dot"></span>
+          </button>
+          <div class="vr mx-1"></div>
+          <div class="profile-pill">
+            <div class="avatar-circle">{{ username.charAt(0).toUpperCase() }}</div>
+            <span class="profile-name">{{ username }}</span>
+          </div>
+          <button class="icon-btn text-danger" title="Se déconnecter" (click)="quit()">
+            <i class="bi bi-box-arrow-right"></i>
+          </button>
+        </div>
+      }
+
+      @else {
+        <ul class="navbar-nav me-auto gap-1">
+          <li class="nav-item">
+            <a class="nav-link korasti-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+              <i class="bi bi-house me-1"></i>Accueil
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link korasti-link" routerLink="/about" routerLinkActive="active">
+              <i class="bi bi-info-circle me-1"></i>À propos
+            </a>
+          </li>
+        </ul>
+
+        <div class="d-flex align-items-center gap-2 ms-auto">
+          <button class="icon-btn" title="Changer la langue">
+            <i class="bi bi-translate"></i>
+          </button>
+          <div class="vr mx-1"></div>
+          <a class="btn btn-outline-primary btn-sm px-3" routerLink="/login">Se connecter</a>
+          <a class="btn btn-primary btn-sm px-3" routerLink="/signup">S'inscrire</a>
+        </div>
+      }
+
     </div>
-</div>
+  </div>
+</nav>
 
