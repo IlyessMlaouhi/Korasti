@@ -1,22 +1,38 @@
+/* ===== Shared tokens ===== */
+:root {
+  --transition-fast: 0.15s ease;
+  --transition-medium: 0.25s ease;
+  --lift-sm: -2px;
+  --lift-md: -6px;
+  --shadow-hover: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lesson-card,
+  .role-card,
+  .role-card .bi {
+    transition: none !important;
+  }
+}
+
+/* ===== Lesson cards (today's schedule) ===== */
 .lesson-card {
   border-radius: 0.75rem;
   border-left: 5px solid transparent;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  transition: border-color var(--transition-fast);
 }
 
-.lesson-card:hover {
-  transform: translateY(-2px);
+/* Raised specificity beats Bootstrap's .card background rule without !important */
+.card.lesson-card--recorded {
+  background-color: #d5f0da;
+  border-left-color: var(--bs-success);
 }
 
-.lesson-card--recorded {
-  background-color: #d5f0da !important;
-  border-left-color: #2b8a3e;
+.card.lesson-card--pending {
+  background-color: #f7d2d2;
+  border-left-color: var(--bs-danger);
 }
 
-.lesson-card--pending {
-  background-color: #f7d2d2 !important;
-  border-left-color: #c92a2a;
-}
 .lesson-time {
   min-width: 70px;
 }
@@ -28,11 +44,31 @@
 }
 
 .lesson-badge--recorded {
-  background-color: rgba(47, 158, 68, 0.14);
-  color: #1e7a34;
+  background-color: rgba(var(--bs-success-rgb), 0.14);
+  color: var(--bs-success);
 }
 
 .lesson-badge--pending {
-  background-color: rgba(224, 49, 49, 0.14);
-  color: #b02a2a;
+  background-color: rgba(var(--bs-danger-rgb), 0.14);
+  color: var(--bs-danger);
+}
+
+/* ===== Role cards (Enseignants / Inspecteurs / Élèves) ===== */
+.role-card {
+  cursor: pointer;
+  transition: transform var(--transition-medium), box-shadow var(--transition-medium);
+}
+
+.role-card:hover,
+.role-card:focus-within {
+  transform: translateY(var(--lift-md));
+  box-shadow: var(--shadow-hover);
+}
+
+.role-card .bi {
+  transition: transform var(--transition-medium);
+}
+
+.role-card:hover .bi {
+  transform: scale(1.12);
 }
